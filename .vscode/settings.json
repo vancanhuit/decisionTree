@@ -2,6 +2,9 @@
     "python.pythonPath": "C:/Users/vancanhuit/Anaconda3/python.exe",
     "python.linting.pep8Enabled": true,
     "python.linting.pylintEnabled": false,
-    "python.formatting.formatOnSave": true
-    
+    "python.formatting.formatOnSave": true,
+    "python.unitTest.pyTestEnabled": true,
+    "python.unitTest.pyTestArgs": [
+        "tests.py"
+    ]
 }
