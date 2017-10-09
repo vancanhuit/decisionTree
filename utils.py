@@ -8,7 +8,9 @@ def readDataSet(sourceFile, attributes):
     data = {}
     dataset = []
     with open(sourceFile, 'r') as f:
+        # Remove any \n character on each line
         lines = [line.rstrip('\n') for line in f]
+
         for line in lines:
             row = line.split(',')
             for index, attr in enumerate(attributes):
@@ -29,7 +31,7 @@ def valuesOf(attribute, dataset):
 
 
 def subset(attribute, value, dataset):
-    ''' Get subset of dataset in which attribute = value '''
+    ''' Get subset of dataset in which attribute's value = value '''
     s = []
     for d in dataset:
         if d[attribute] == value:
@@ -54,13 +56,13 @@ def entropy(targetAttribute, dataset):
     targetValues = valuesOf(targetAttribute, dataset)
 
     # Count how many each target value appear in dataset
-    proportions = [count(targetAttribute, targetValue, dataset)
-                   for targetValue in targetValues]
+    valueCounters = [count(targetAttribute, targetValue, dataset)
+                     for targetValue in targetValues]
 
     # Compute entropy
     size = len(dataset)
     e = 0.0
-    for p in proportions:
+    for p in valueCounters:
         e -= p / size * math.log2(p / size)
 
     return e
@@ -71,11 +73,12 @@ def informationGain(attribute, targetAttribute, dataset):
     # Compute entropy of original dataset
     e = entropy(targetAttribute, dataset)
     datasetSize = len(dataset)
+    # Initialize information gain
     ig = e
 
     # Get all possible values of an attribute in dataset
     values = valuesOf(attribute, dataset)
-    # Get all subset of dataset in which attribute = value
+    # Get all subset of dataset in which attribute's value = value
     subsets = [subset(attribute, value, dataset) for value in values]
 
     for s in subsets:
