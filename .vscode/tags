@@ -4,7 +4,20 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-entropy	../src\utils.py	/^def entropy(dataset):$/;"	kind:function	line:6
-main.py	../src\main.py	1;"	kind:file	line:1
-math	../src\utils.py	/^import math$/;"	kind:namespace	line:3
-utils.py	../src\utils.py	1;"	kind:file	line:1
+TestClass	../tests.py	/^class TestClass(object):$/;"	kind:class	line:4
+count	../utils.py	/^def count(targetAttribute, targetValue, dataset):$/;"	kind:function	line:41
+dataset	../tests.py	/^    dataset = utils.readDataSet('weatherDataSet.csv', [$/;"	kind:variable	line:7
+entropy	../utils.py	/^def entropy(targetAttribute, dataset):$/;"	kind:function	line:51
+informationGain	../utils.py	/^def informationGain(attribute, targetAttribute, dataset):$/;"	kind:function	line:69
+main.py	../main.py	1;"	kind:file	line:1
+math	../utils.py	/^import math$/;"	kind:namespace	line:3
+readDataSet	../utils.py	/^def readDataSet(sourceFile, attributes):$/;"	kind:function	line:6
+subset	../utils.py	/^def subset(attribute, value, dataset):$/;"	kind:function	line:31
+testCount	../tests.py	/^    def testCount(self):$/;"	kind:member	line:27
+testReadDataSet	../tests.py	/^    def testReadDataSet(self):$/;"	kind:member	line:10
+testSubset	../tests.py	/^    def testSubset(self):$/;"	kind:member	line:22
+testValuesOf	../tests.py	/^    def testValuesOf(self):$/;"	kind:member	line:14
+tests.py	../tests.py	1;"	kind:file	line:1
+utils	../tests.py	/^import utils$/;"	kind:namespace	line:1
+utils.py	../utils.py	1;"	kind:file	line:1
+valuesOf	../utils.py	/^def valuesOf(attribute, dataset):$/;"	kind:function	line:22
