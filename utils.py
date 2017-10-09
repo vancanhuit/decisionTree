@@ -88,3 +88,15 @@ def informationGain(attribute, targetAttribute, dataset):
         ig -= subsetSize / datasetSize * es
 
     return ig
+
+
+def selectBestAttribute(attributes, targetAttribute, dataset):
+    igs = [informationGain(attr, targetAttribute, dataset)
+           for attr in attributes]
+
+    maxIGIndex = 0
+    for index in range(len(igs) - 1):
+        if igs[index + 1] > igs[maxIGIndex]:
+            maxIGIndex = index + 1
+
+    return attributes[maxIGIndex]
