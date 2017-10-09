@@ -3,20 +3,16 @@
 import math
 
 
-def readWeatherDataSet(sourceFile):
+def readDataSet(sourceFile, attributes):
     ''' Read dataset from external file '''
     data = {}
     dataset = []
     with open(sourceFile, 'r') as f:
         lines = [line.rstrip('\n') for line in f]
         for line in lines:
-            (outlook, temperature, humidity, wind, playtennis) = \
-                line.split(',')
-            data['outlook'] = outlook
-            data['temperature'] = temperature
-            data['humidity'] = humidity
-            data['wind'] = wind
-            data['playtennis'] = playtennis
+            row = line.split(',')
+            for index, attr in enumerate(attributes):
+                data[attr] = row[index]
 
             dataset.append(data.copy())
 

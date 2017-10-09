@@ -3,23 +3,10 @@
 import math
 import utils
 
-dataset = utils.readWeatherDataSet('dataset.csv')
+dataset = utils.readDataSet(
+    'weatherDataset.csv', ['outlook', 'temperature', 'humidity', 'wind', 'playtennis'])
 
-# e = utils.entropy('playtennis', dataset)
-# datasetSize = len(dataset)
-# ig = e
-# print(e)
-# print(datasetSize)
-# values = utils.valuesOf('outlook', dataset)
-# subsets = [utils.subset('outlook', value, dataset) for value in values]
-
-# for s in subsets:
-#     es = utils.entropy('playtennis', s)
-#     subsetSize = len(s)
-#     ig -= subsetSize / datasetSize * es
-
-# print(ig)
-
+print(dataset)
 print(utils.informationGain('outlook', 'playtennis', dataset))
 print(utils.informationGain('humidity', 'playtennis', dataset))
 print(utils.informationGain('wind', 'playtennis', dataset))
