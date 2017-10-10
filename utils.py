@@ -93,6 +93,24 @@ def informationGain(attribute, targetAttribute, dataset):
     return ig
 
 
+def majorityValue(targetAttribute, dataset):
+    targetValues = valuesOf(targetAttribute, dataset)
+    counter = {}
+    for value in targetValues:
+        if counter.get(value, None) is None:
+            counter[value] = 1
+        else:
+            counter[value] += 1
+
+    max = 0
+    majorValue = ""
+    for key in counter.keys():
+        if counter[key] > max:
+            majorValue = key
+
+    return majorValue
+
+
 def selectBestAttribute(attributes, targetAttribute, dataset):
     igs = [informationGain(attr, targetAttribute, dataset)
            for attr in attributes]
