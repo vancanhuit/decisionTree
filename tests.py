@@ -4,12 +4,12 @@ import utils
 class TestClass(object):
     ''' Test utility functions '''
     # Initialize dataset for testing
-    dataset = utils.readDataSet('weatherDataSet.csv', [
-                                'outlook', 'temperature', 'humidity', 'wind', 'playtennis'])
+    attributes, dataset = utils.readDataSet('weatherDataSet.csv')
 
     def testReadDataSet(self):
         assert self.dataset is not None
         assert len(self.dataset) == 14
+        assert len(self.attributes) == 5
 
     def testValuesOf(self):
         values = utils.valuesOf('outlook', self.dataset)

@@ -3,22 +3,25 @@
 import math
 
 
-def readDataSet(sourceFile, attributes):
+def readDataSet(sourceFile):
     ''' Read dataset from external file '''
-    data = {}
+    data = []
+    attributes = []
     dataset = []
     with open(sourceFile, 'r') as f:
-        # Remove any \n character on each line
-        lines = [line.rstrip('\n') for line in f]
+        data = [line.rstrip('\n').split(',') for line in f]
 
-        for line in lines:
-            row = line.split(',')
-            for index, attr in enumerate(attributes):
-                data[attr] = row[index]
+    attributes = data[0]
+    data.remove(attributes)
 
-            dataset.append(data.copy())
+    for row in data:
+        d = {}
+        for index, attr in enumerate(attributes):
+            d[attr] = row[index]
 
-    return dataset
+        dataset.append(d.copy())
+
+    return attributes, dataset
 
 
 def valuesOf(attribute, dataset):
