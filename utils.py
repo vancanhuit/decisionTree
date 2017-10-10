@@ -94,10 +94,10 @@ def informationGain(attribute, targetAttribute, dataset):
 
 
 def majorityValue(targetAttribute, dataset):
-    targetValues = valuesOf(targetAttribute, dataset)
     counter = {}
-    for value in targetValues:
-        if counter.get(value, None) is None:
+    for d in dataset:
+        value = d[targetAttribute]
+        if counter.get(value) is None:
             counter[value] = 1
         else:
             counter[value] += 1
