@@ -4,7 +4,8 @@ import utils
 class TestClass(object):
     ''' Test utility functions '''
     # Initialize dataset for testing
-    attributes, dataset = utils.readDataSet('./datasets/train.csv')
+    attributes, dataset = utils.readDataSet(
+        './datasets/weatherDataSetTrain.csv')
 
     def testReadDataSet(self):
         assert self.dataset is not None
