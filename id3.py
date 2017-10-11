@@ -11,7 +11,7 @@ def id3(attributes, targetAttribute, dataset):
     currentEntropy = utils.entropy(targetAttribute, currentDataSet)
 
     # If attributes is empty, return the majority value
-    if len(attributes) == 0:
+    if len(currentAttributes) == 0:
         return default
 
     # if all examples belong to same class
@@ -20,7 +20,7 @@ def id3(attributes, targetAttribute, dataset):
         return value
 
     bestAttribute = utils.selectBestAttribute(
-        attributes, targetAttribute, dataset)
+        currentAttributes, targetAttribute, currentDataSet)
 
     tree = {bestAttribute: {}}
     bestAttributeValues = utils.valuesOf(bestAttribute, currentDataSet)
