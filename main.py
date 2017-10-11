@@ -10,3 +10,8 @@ attributes.remove(targetAttribute)
 
 tree = id3.id3(attributes, targetAttribute, dataset)
 print(tree)
+
+_, dataset = utils.readDataSet('weatherDataSetTest.csv')
+for d in dataset:
+    print(d)
+    print(id3.predict(d, tree))

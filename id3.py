@@ -32,3 +32,13 @@ def id3(attributes, targetAttribute, dataset):
         tree[bestAttribute][value] = subtree
 
     return tree
+
+
+def predict(input, tree):
+    [root] = tree.keys()
+    ans = tree[root][input[root]]
+    while isinstance(ans, dict) is True:
+        [root] = ans.keys()
+        ans = ans[root][input[root]]
+
+    return ans
