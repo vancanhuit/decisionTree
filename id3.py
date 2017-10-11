@@ -35,10 +35,12 @@ def id3(attributes, targetAttribute, dataset):
 
 
 def predict(input, tree):
+    if not isinstance(tree, dict):
+        return tree
     [root] = tree.keys()
-    ans = tree[root][input[root]]
-    while isinstance(ans, dict) is True:
+    ans = tree[root].get(input[root])
+    while ans and isinstance(ans, dict):
         [root] = ans.keys()
-        ans = ans[root][input[root]]
+        ans = ans[root].get(input[root])
 
     return ans
