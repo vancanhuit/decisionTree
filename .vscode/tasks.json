@@ -6,7 +6,7 @@
         {
             "taskName": "build",
             "type": "shell",
-            "command": "C:/Users/vancanhuit/Anaconda3/python.exe main.py",
+            "command": "/usr/bin/python3.5 main.py",
             "group": {
                 "kind": "build",
                 "isDefault": true
